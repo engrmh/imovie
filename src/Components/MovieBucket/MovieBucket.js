@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import './MovieBucket.css'
 
 export default class MovieBucket extends Component {
     constructor(props) {
@@ -10,9 +10,10 @@ export default class MovieBucket extends Component {
             moviesData: null,
             pageInfo: null,
             pageCount: 1,
-            currentPage: 1
+            currentPage: null
         };
     }
+
 
     componentDidMount() {
         this.fetchData();
@@ -38,41 +39,40 @@ export default class MovieBucket extends Component {
         });
     };
 
-    sendMovieID(id){
-        window.location = 'showMovieDetails.html?id='+ id
+    sendMovieID(id , page){
+        window.location = '/MoviePage?id='+ id
     }
 
     render() {
         return (
             <Container fluid className='px-5'>
-                <h2 className='mx-auto mb-3 pt-3 ps-2'>Movie</h2>
-                <hr className='text-white' />
                 <div className="">
-                    <Row className='my-4 justify-content-between'>
+                    <Row className='my-4 justify-content-between mx-3 mx-lg-0'>
                         {this.state.moviesData ? (
                             this.state.moviesData.map(movie => (
-                                <Col key={movie.id} xs={6} md={4} lg={2} className='bg-warning m-3 rounded px-0 h-auto' onClick={this.sendMovieID.bind(this,movie.id)}>
-                                    <Image src={movie.poster} fluid className='w-100 mb-2 rounded-top h-75' />
+                                <Col key={movie.id} xs={6} md={4} lg={2} className='bg-warning m-3 rounded px-0 pb-2 movieContainer' onClick={this.sendMovieID.bind(this , movie.id)}>
+                                    <Image src={movie.poster} fluid className='w-100 mb-1 rounded-top h-75' />
                                     <div className='d-flex flex-column justify-content-between align-items-start text-black px-3'>
-                                        <h5 className=''>{movie.title}</h5>
-                                        <h6>IMBD: {movie.imdb_rating}</h6>
-                                        <h6>{movie.year}</h6>
+                                        <h6 className=''>{movie.title}</h6>
+                                        <h6 className='movieInfo'>IMBD: {movie.imdb_rating}</h6>
+                                        <h6 className='movieInfo'>{movie.year}</h6>
                                     </div>
                                 </Col>
                             ))
                         ) : (
                             <p>Loading data...</p>
                         )}
-                        <Stack spacing={2}>
+                        <div className="mt-3 mx-auto paginationContainer">
                             <Pagination
                                 count={this.state.pageCount} // Total number of pages
                                 page={this.state.currentPage} // Current active page
                                 onChange={this.handlePageChange} // Callback function for page change
                                 variant="outlined"
                                 shape="rounded"
+                                color="primary"
 
                             />
-                        </Stack>
+                        </div>
                     </Row>
                 </div>
             </Container>
