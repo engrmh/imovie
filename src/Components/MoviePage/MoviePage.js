@@ -2,17 +2,12 @@
     import { AiFillStar } from 'react-icons/ai';
     import Tab from 'react-bootstrap/Tab';
     import Tabs from 'react-bootstrap/Tabs';
-
     import {Button, Col, Container, Image, Row} from "react-bootstrap";
     import "./style.css";
-    import { Swiper, SwiperSlide } from "swiper/react";
 
-    // Import Swiper styles
+    import { Swiper, SwiperSlide } from "swiper/react";
     import "swiper/css";
     import "swiper/css/effect-creative";
-
-
-    // import required modules
     import { Autoplay , EffectCreative } from "swiper";
 
     export default class MoviePage extends Component{
@@ -41,7 +36,6 @@
             fetch('https://moviesapi.ir/api/v1/movies/' + this.state.getMovieID)
                 .then(response => response.json())
                 .then(res => {
-                    console.log(res)
                     this.setState({
                         currentMovie : res
                     })
@@ -78,8 +72,8 @@
                                             </div>
                                             <div className="">
                                                 <Tabs
-                                                    // defaultActiveKey="overview"
-                                                    defaultActiveKey="pictures"
+                                                    defaultActiveKey="overview"
+                                                    // defaultActiveKey="pictures"
                                                     id="justify-tab-example"
                                                     className="mb-3"
                                                     justify

@@ -67,10 +67,8 @@ export default class MovieBucket extends Component {
                                 count={this.state.pageCount} // Total number of pages
                                 page={this.state.currentPage} // Current active page
                                 onChange={this.handlePageChange} // Callback function for page change
-                                variant="outlined"
                                 shape="rounded"
-                                color="primary"
-
+                                color="secondary"
                             />
                         </div>
                     </Row>
