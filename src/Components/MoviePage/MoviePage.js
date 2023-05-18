@@ -4,11 +4,7 @@
     import Tabs from 'react-bootstrap/Tabs';
     import {Button, Col, Container, Image, Row} from "react-bootstrap";
     import "./style.css";
-
-    import { Swiper, SwiperSlide } from "swiper/react";
-    import "swiper/css";
-    import "swiper/css/effect-creative";
-    import { Autoplay , EffectCreative } from "swiper";
+    import PhotoBox from './PhotoBox'
 
     export default class MoviePage extends Component{
         constructor(props) {
@@ -47,7 +43,7 @@
         render() {
             return(
                 <>
-                    <Container fluid className='text-white'>
+                    <Container fluid className='text-white position-relative'>
                         <Row className='justify-content-between mt-4'>
                             {
                                 this.state.currentMovie && (
@@ -98,37 +94,9 @@
 
                                                     </Tab>
                                                     <Tab eventKey="pictures" title="Pictures">
-                                                        <div className="d-flex justify-content-between align-items-center">
-                                                            <Swiper
-                                                                grabCursor={true}
-                                                                effect={"creative"}
-                                                                loop={true}
-                                                                autoplay={{
-                                                                    delay: 2500,
-                                                                    disableOnInteraction: false,
-                                                                }}
-                                                                creativeEffect={{
-                                                                    prev: {
-                                                                        shadow: true,
-                                                                        translate: ["-120%", 0, -500],
-                                                                    },
-                                                                    next: {
-                                                                        shadow: true,
-                                                                        translate: ["120%", 0, -500],
-                                                                    },
-                                                                }}
-                                                                modules={[Autoplay ,EffectCreative]}
-                                                                className="mySwiper2 w-75 rounded"
-                                                            >
-                                                                {
-                                                                    this.state.currentMovie.images.map(image => (
-                                                                        <SwiperSlide >
-                                                                            <Image src={image} fluid className=''/>
-                                                                        </SwiperSlide>
-                                                                    ))
-                                                                }
-                                                            </Swiper>
-
+                                                        <div className="d-flex flex-column justify-content-between align-items-center">
+                                                            <h5 className='mb-4 text-warning'>For see gallery click on bottom photo</h5>
+                                                            <PhotoBox image={this.state.currentMovie.images}/>
                                                         </div>
 
                                                     </Tab>

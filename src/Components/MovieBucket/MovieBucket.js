@@ -9,7 +9,7 @@ export default class MovieBucket extends Component {
         this.state = {
             moviesData: null,
             pageInfo: null,
-            pageCount: 1,
+            pageCount: null,
             currentPage: null
         };
     }
@@ -60,7 +60,7 @@ export default class MovieBucket extends Component {
                                 </Col>
                             ))
                         ) : (
-                            <p>Loading data...</p>
+                            <p className='text-light'>Loading data...</p>
                         )}
                         <div className="mt-3 mx-auto paginationContainer">
                             <Pagination
