@@ -1,5 +1,8 @@
 body {
-  background-color: #222;
+  background-image: url('../public/img/back.jpg');
+  background-size: cover;
+  background-position: left;
+  background-attachment: fixed;
 }
 
 code {

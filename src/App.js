@@ -1,18 +1,27 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import MovieBucket from "./Components/MovieBucket/MovieBucket";
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./Components/Header/Header";
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import MoviePage from "./Components/MoviePage/MoviePage";
+import { useRoutes } from "react-router-dom";
+import { routers } from "./routes";
+import PageContext from "./Context/Context";
 
 export default function App() {
+  const [allMovies, setAllMovies] = useState([]);
+  const [moviePage, setMoviePage] = useState(1);
+  let routes = useRoutes(routers);
   return (
-      <BrowserRouter>
-          <Header/>
-          <Routes>
-              <Route path="/" exact element={<MovieBucket />} />
-              <Route path="MoviePage" exact element={<MoviePage />} />
-          </Routes>
-      </BrowserRouter>
+    <div>
+      <Header />
+      <PageContext.Provider
+        value={{
+          allMovies,
+          setAllMovies,
+          moviePage,
+          setMoviePage,
+        }}
+      >
+        {routes}
+      </PageContext.Provider>
+    </div>
   );
 }
