@@ -3,7 +3,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { AiFillStar } from "react-icons/ai";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import PhotoBox from "./PhotoBox";
+import PhotoBox from "../../Components/PhotoLiteBox/PhotoBox";
 
 export default function MoviePage() {
   return (

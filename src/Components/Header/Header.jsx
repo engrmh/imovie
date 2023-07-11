@@ -1,13 +1,14 @@
 import React from "react";
 import { Container, Image, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Header.css";
 
 export default function Header() {
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
-      className="bg-opacity-75 bg-dark position-fixed top-0 end-0 start-0"
+      className="header-container bg-opacity-75 bg-dark position-fixed top-0 end-0 start-0"
     >
       <Container>
         <Navbar.Brand href="/" className="text-light">

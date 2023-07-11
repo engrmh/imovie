@@ -1,17 +1,6 @@
-.movieContainer{
-    height: 20rem;
-    width: 14rem;
-    transition: all 0.3s ease-in-out;
+.movieInfos{
+    display: none !important;
 }
-.movieContainer:hover{
-    cursor: pointer;
-    transform: scale(1.2);
-}
-.movieInfo{
-    font-size: .7rem;
-}
-.paginationContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.movie-box:hover .movieInfos{
+    display: flex !important;
 }

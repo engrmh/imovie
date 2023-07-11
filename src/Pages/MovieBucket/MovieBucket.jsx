@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Col, Container, Image, Row, Spinner } from "react-bootstrap";
+import { Button, Col, Container, Image, Row, Spinner } from "react-bootstrap";
 import PageContext from "../../Context/Context";
 import { Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
+import "./MovieBucket.css";
 export default function MovieBucket() {
   const contextData = useContext(PageContext);
   const [pageCount, setPageCount] = useState([]);
@@ -33,48 +34,68 @@ export default function MovieBucket() {
     <Container className="mt-5">
       <Row>
         <Col xs={12}>
-          <Row className="justify-content-center">
+          <Row className="justify-content-center py-2">
             {contextData.allMovies.length ? (
               <>
                 {showMovies ? (
                   contextData.allMovies.map((movie) => (
-                    <Col xs={12} md={3} lg={2} key={movie.id}>
-                      <Link
-                        to={`/currentMovie/${movie.id}`}
-                        className="text-decoration-none text-light m-1"
-                        target="_blank"
-                      >
-                        <div className="d-none d-md-flex flex-md-column bg-dark bg-opacity-75">
+                    <Col xs={12} md={3} lg={2} key={movie.id} className="">
+                      <div className="text-decoration-none text-light m-2 movie-box shadow-lg">
+                        <div className="d-none d-md-flex flex-md-column bg-dark bg-opacity-75 rounded position-relative">
                           <div className="">
                             <Image
                               src={movie.poster}
                               alt={movie.title}
-                              className="w-100 img-fluid rounded"
+                              className="w-100 h-100 img-fluid rounded"
                             />
                           </div>
-                          <div className="mt-2 p-1 rounded">
-                            <h5 className="">{movie.title}</h5>
-                            <p className="">{movie.year}</p>
-                            <p className="">{movie.country}</p>
+                          <div className="p-2 rounded bg-dark bg-opacity-75 h-100 w-100 position-absolute movieInfos flex-column justify-content-between">
+                            <div className="">
+                              <h4 className="mb-3">{movie.title}</h4>
+                              <p className="">{movie.year}</p>
+                              <p className="">{movie.country}</p>
+                            </div>
+                            <Button className="bg-transparent border-white">
+                              <Link
+                                to={`/currentMovie/${movie.id}`}
+                                className="text-decoration-none text-light"
+                                target="_blank"
+                              >
+                                Learn More
+                              </Link>
+                            </Button>
                           </div>
                         </div>
 
                         {/*Mobile*/}
-                        <div className="d-flex d-md-none flex-md-column bg-dark bg-opacity-75">
-                          <div className="w-25">
+                        <div className="d-flex d-md-none flex-md-column bg-dark bg-opacity-75 rounded">
+                          <div className="w-50">
                             <Image
                               src={movie.poster}
                               alt={movie.title}
                               className="h-100 img-fluid rounded"
                             />
                           </div>
-                          <div className="ms-3 p-1 rounded">
-                            <h5 className="">{movie.title}</h5>
-                            <p className="">{movie.year}</p>
-                            <p className="">{movie.country}</p>
+                          <div className="ms-3 p-1 rounded w-100">
+                            <div className="">
+                              <h5 className="">{movie.title}</h5>
+                              <p className="">{movie.year}</p>
+                              <p className="">{movie.country}</p>
+                            </div>
+                            <div className="d-flex justify-content-end pb-2 pe-2">
+                              <Button className="bg-transparent border-white">
+                                <Link
+                                  to={`/currentMovie/${movie.id}`}
+                                  className="text-decoration-none text-light"
+                                  target="_blank"
+                                >
+                                  Learn More
+                                </Link>
+                              </Button>
+                            </div>
                           </div>
                         </div>
-                      </Link>
+                      </div>
                     </Col>
                   ))
                 ) : (

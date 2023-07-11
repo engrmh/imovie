@@ -8,7 +8,9 @@ import PageContext from "./Context/Context";
 export default function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [moviePage, setMoviePage] = useState(1);
+
   let routes = useRoutes(routers);
+
   return (
     <div>
       <Header />
