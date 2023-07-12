@@ -9,7 +9,7 @@ import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { EffectCoverflow, Autoplay } from "swiper";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { Link } from "react-router-dom";
-
+import { Typewriter } from "react-simple-typewriter";
 export default function Home() {
   useEffect(() => {
     AOS.init();
@@ -28,7 +28,8 @@ export default function Home() {
             <div className="d-flex justify-content-center align-items-center flex-column text-white">
               <h1 className="homeTitle">iMovie</h1>
               <h3 className="homeTitleDescription bg-dark bg-opacity-50 p-2 rounded">
-                Movies and Series Official Page
+                <Typewriter words={["Movies", "Series"]} loop={true} />
+                <span className="ms-2">Official Page</span>
               </h3>
             </div>
             <div className="position-absolute bottom-0 downingArrow pb-3">
@@ -128,26 +129,28 @@ export default function Home() {
           </Col>
           <Col xs={12} md={12} lg={12}>
             <div className="w-100">
-              <h3 className="text-center border-white border-bottom text-white">
+              <h3 className="text-center border-white border-bottom text-white accessTitle">
                 Your Access
               </h3>
               <div className="d-flex justify-content-between align-items-center my-3 gap-4">
-                <Button className="w-100 border-white bg-transparent allMovieBtn">
-                  <Link
-                    to=""
-                    className="text-decoration-none bg-transparent border-white text-white allMovieBtnLink"
-                  >
-                    All Movies
-                  </Link>
-                </Button>
-                <Button className="w-100 border-white bg-transparent searchMovieBtn">
-                  <Link
-                    to=""
-                    className="text-decoration-none bg-transparent border-white text-white searchMovieBtnLink"
-                  >
-                    Search in Movies
-                  </Link>
-                </Button>
+                <Link
+                  to="/allMovies"
+                  className="text-decoration-none w-100 bg-transparent border-white text-white text-center py-2 rounded allMovieBtn"
+                >
+                  All Movies
+                </Link>
+                <Link
+                  to="/search"
+                  className="w-100 border-white text-decoration-none bg-transparent text-white text-center py-2 rounded searchMovieBtn"
+                >
+                  Search in Movies
+                </Link>
+                <Link
+                  to="/newMovie"
+                  className="text-decoration-none bg-transparent border-white text-white w-100 text-center py-2 rounded addNewMovieBtn"
+                >
+                  Add New Movie
+                </Link>
               </div>
             </div>
           </Col>

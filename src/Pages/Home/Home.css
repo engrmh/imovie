@@ -41,23 +41,21 @@
         transform: translateY(0);
     }
 }
+.accessTitle{
+    text-shadow: -20px -5px 5px #fff;
+}
 .allMovieBtn,
-.searchMovieBtn{
-    position: relative;
-}
-.allMovieBtn:before ,
-.searchMovieBtn:before{
-    content: '';
-    position: absolute;
-    width: 0;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.searchMovieBtn,
+.addNewMovieBtn{
     transition: all 0.3s linear;
+    border: 1px solid #fff;
+    background-color: #ffc10a50 !important;
 }
-.allMovieBtn:hover::before,
-.searchMovieBtn:hover::before{
-    background-color: #ffc10a70;
-    width: 100%;
+.allMovieBtn:hover,
+.searchMovieBtn:hover,
+.addNewMovieBtn:hover{
+    background-color: #ffc10a !important;
+    border-color: #ffc10a !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px #ffc10a;
 }
