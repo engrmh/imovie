@@ -23,7 +23,7 @@ export default function Home() {
             xs={12}
             md={12}
             lg={12}
-            className="vh-100 d-flex justify-content-center align-items-center position-relative"
+            className="starter-banner d-flex justify-content-center align-items-center position-relative"
           >
             <div className="d-flex justify-content-center align-items-center flex-column text-white">
               <h1 className="homeTitle">iMovie</h1>

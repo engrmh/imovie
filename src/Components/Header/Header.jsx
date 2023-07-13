@@ -8,7 +8,7 @@ export default function Header() {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className="header-container bg-opacity-75 bg-dark position-fixed top-0 end-0 start-0"
+      className="header-container bg-opacity-75 bg-dark"
     >
       <Container>
         <Navbar.Brand href="/" className="text-light">

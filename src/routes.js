@@ -1,6 +1,6 @@
 import Home from "./Pages/Home/Home";
 import MovieBucket from "./Pages/MovieBucket/MovieBucket";
-import MoviePage from "./Pages/MoviePage/MoviePage";
+import CurrentMovie from "./Pages/CurrentMovie/CurrentMovie";
 
 export let routers = [
   {
@@ -12,8 +12,8 @@ export let routers = [
     element: <MovieBucket />,
   },
   {
-    path: "/currentMovie/:id",
-    element: <MoviePage />,
+    path: "/currentMovie/:movieID",
+    element: <CurrentMovie />,
   },
   {
     path: "/newMovie",

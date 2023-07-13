@@ -31,8 +31,13 @@ export default function MovieBucket() {
   }, 3000);
 
   return (
-    <Container className="mt-5">
+    <Container className="">
       <Row>
+        <Col xs={12} className="">
+          <h3 className="allMoviesTitle text-white text-center mt-2 border-white border-bottom py-3">
+            All Movies
+          </h3>
+        </Col>
         <Col xs={12}>
           <Row className="justify-content-center py-2">
             {contextData.allMovies.length ? (
@@ -89,7 +94,7 @@ export default function MovieBucket() {
                                   className="text-decoration-none text-light"
                                   target="_blank"
                                 >
-                                  Learn More
+                                  See More
                                 </Link>
                               </Button>
                             </div>
