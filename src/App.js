@@ -5,6 +5,7 @@ import { useRoutes } from "react-router-dom";
 import { routers } from "./routes";
 import PageContext from "./Context/Context";
 import "./App.css";
+import Footer from "./Components/Footer/Footer";
 
 export default function App() {
   const [allMovies, setAllMovies] = useState([]);
@@ -30,6 +31,7 @@ export default function App() {
       >
         {routes}
       </PageContext.Provider>
+      <Footer />
     </div>
   );
 }
