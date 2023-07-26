@@ -1,0 +1,13 @@
+.newMovieInput:focus{
+    border: none !important;
+    border-bottom: 3px solid #ffffff !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+}
+.newMovieInput{
+    border-bottom: 3px solid #ffc10a !important;
+}
+.addNewMovieContainer{
+    height: calc(100vh - 280px);
+}
