@@ -11,18 +11,23 @@ export default function AddNewFilm () {
     const newFilmGen = () => {
         let mainFilm = {
             title: filmName,
-            imbd_id:imbdID,
+            imbd_id: imbdID,
             country: filmCountry,
             year: filmYear
-        }
-        fetch('https://moviesapi.ir/api/v1/movies' , {
+        };
+
+        fetch('https://moviesapi.ir/api/v1/movies', {
             method: 'POST',
-            headers:{
+            headers: {
                 'Content-Type': 'application/json'
             },
-            body: mainFilm
-        }).then(res => res.json()).then(json => console.log(json))
+            body: JSON.stringify(mainFilm) // Convert the mainFilm object to a JSON string
+        })
+            .then(res => res.json())
+            .then(json => console.log(json))
+            .catch(error => console.error('Error:', error)); // Add error handling for the fetch request
     }
+
 
     return (
     <Container className='addNewMovieContainer mb-2 py-2'>
