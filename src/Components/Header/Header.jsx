@@ -41,14 +41,10 @@ export default function Header() {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link className="bg-warning rounded">
+            <Nav.Link className="bg-warning rounded px-4">
               <div className="d-flex justify-content-center align-items-center">
                 <Link className="text-dark text-decoration-none" to="/login">
                   Login
-                </Link>
-                <span className="text-dark mx-1">/</span>
-                <Link className="text-dark text-decoration-none" to="/register">
-                  Register
                 </Link>
               </div>
             </Nav.Link>
