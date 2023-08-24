@@ -4,6 +4,7 @@ import CurrentMovie from "./Pages/CurrentMovie/CurrentMovie";
 import AddNewFilm from "./Pages/AddNewFilm/AddNewFilm";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
+import Search from "./Pages/Search/Search";
 
 export let routers = [
   {
@@ -23,8 +24,8 @@ export let routers = [
     element: <AddNewFilm />,
   },
   {
-    path: "/searchMovie",
-    element: <Home />,
+    path: "/search",
+    element: <Search />,
   },
   {
     path: "/login",
