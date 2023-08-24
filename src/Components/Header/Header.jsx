@@ -21,7 +21,10 @@ export default function Header() {
           />
           iMovie
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav text-white border-0" />
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          className="border-0 bg-warning"
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto text-center">
             <Nav.Link>
