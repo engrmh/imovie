@@ -158,7 +158,7 @@ export default function Home() {
               </div>
             </div>
           </Col>
-          <Col xs={12} md={12} lg={12} className="mt-5">
+          <Col xs={12} md={12} lg={12} className="my-5">
             <div className="w-100">
               <h3 className="text-center border-white border-bottom text-white accessTitle">
                 All Geners

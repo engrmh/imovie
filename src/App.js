@@ -49,9 +49,6 @@ export default function App() {
 
   return (
     <div>
-      <div className="header-container position-sticky top-0 end-0 start-0">
-        <Header />
-      </div>
       <PageContext.Provider
         value={{
           allMovies,
@@ -67,9 +64,14 @@ export default function App() {
           logout,
         }}
       >
-        {routes}
+        <div className="header-container position-sticky top-0 end-0 start-0">
+          <Header />
+        </div>
+        <div className="">{routes}</div>
+        {/*<div className="">*/}
+        {/*  <Footer />*/}
+        {/*</div>*/}
       </PageContext.Provider>
-      <Footer />
     </div>
   );
 }
