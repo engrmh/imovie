@@ -1,0 +1,6 @@
+.movieInfos{
+    display: none !important;
+}
+.movie-box:hover .movieInfos{
+    display: flex !important;
+}

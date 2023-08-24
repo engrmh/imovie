@@ -4,6 +4,7 @@ import PageContext from "../../Context/Context";
 import { Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./MovieBucket.css";
+import MovieBox from "../../Components/MovieBox/MovieBox";
 export default function MovieBucket() {
   const contextData = useContext(PageContext);
   const [pageCount, setPageCount] = useState([]);
@@ -43,66 +44,7 @@ export default function MovieBucket() {
             {contextData.allMovies.length ? (
               <>
                 {showMovies ? (
-                  contextData.allMovies.map((movie) => (
-                    <Col xs={12} md={3} lg={2} key={movie.id} className="">
-                      <div className="text-decoration-none text-light m-2 movie-box shadow-lg">
-                        <div className="d-none d-md-flex flex-md-column bg-dark bg-opacity-75 rounded position-relative">
-                          <div className="">
-                            <Image
-                              src={movie.poster}
-                              alt={movie.title}
-                              className="w-100 h-100 img-fluid rounded"
-                            />
-                          </div>
-                          <div className="p-2 rounded bg-dark bg-opacity-75 h-100 w-100 position-absolute movieInfos flex-column justify-content-between">
-                            <div className="">
-                              <h4 className="mb-3">{movie.title}</h4>
-                              <p className="">{movie.year}</p>
-                              <p className="">{movie.country}</p>
-                            </div>
-                            <Button className="bg-transparent border-white">
-                              <Link
-                                to={`/currentMovie/${movie.id}`}
-                                className="text-decoration-none text-light"
-                                target="_blank"
-                              >
-                                Learn More
-                              </Link>
-                            </Button>
-                          </div>
-                        </div>
-
-                        {/*Mobile*/}
-                        <div className="d-flex d-md-none flex-md-column bg-dark bg-opacity-75 rounded">
-                          <div className="w-50">
-                            <Image
-                              src={movie.poster}
-                              alt={movie.title}
-                              className="h-100 img-fluid rounded"
-                            />
-                          </div>
-                          <div className="ms-3 p-1 rounded w-100">
-                            <div className="">
-                              <h5 className="">{movie.title}</h5>
-                              <p className="">{movie.year}</p>
-                              <p className="">{movie.country}</p>
-                            </div>
-                            <div className="d-flex justify-content-end pb-2 pe-2">
-                              <Button className="bg-transparent border-white">
-                                <Link
-                                  to={`/currentMovie/${movie.id}`}
-                                  className="text-decoration-none text-light"
-                                  target="_blank"
-                                >
-                                  See More
-                                </Link>
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Col>
-                  ))
+                  contextData.allMovies.map((movie) => <MovieBox {...movie} />)
                 ) : (
                   <Col
                     xs={12}
