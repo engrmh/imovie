@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -11,8 +11,12 @@ import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 export default function Home() {
+  const [allGeners, setAllGeners] = useState([]);
   useEffect(() => {
     AOS.init();
+    fetch(`https://moviesapi.ir/api/v1/genres`)
+      .then((res) => res.json())
+      .then((data) => setAllGeners(data));
   }, []);
 
   return (
@@ -152,6 +156,25 @@ export default function Home() {
                   Add New Movie
                 </Link>
               </div>
+            </div>
+          </Col>
+          <Col xs={12} md={12} lg={12} className="mt-5">
+            <div className="w-100">
+              <h3 className="text-center border-white border-bottom text-white accessTitle">
+                All Geners
+              </h3>
+              <Row className="justify-content-between justify-content-md-start align-items-center my-3 flex-wrap">
+                {allGeners.map((gener) => (
+                  <Col xs={4} md={3} lg={2}>
+                    <h6
+                      className="bg-warning bg-opacity-75 text-white text-center rounded py-2"
+                      key={gener.id}
+                    >
+                      {gener.name}
+                    </h6>
+                  </Col>
+                ))}
+              </Row>
             </div>
           </Col>
         </Row>

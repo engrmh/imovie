@@ -58,7 +58,7 @@ export default function Register() {
   };
 
   return (
-    <Container className="addNewMovieContainer mt-4 py-2">
+    <Container className="addNewMovieContainer my-4 py-2">
       <Row className="justify-content-center align-items-center">
         <Col xs={12} md={5}>
           <Form>
@@ -71,6 +71,7 @@ export default function Register() {
                   </Form.Label>
                   <Form.Control
                     value={userName}
+                    autoComplete="off"
                     onChange={(event) => setUserName(event.target.value)}
                     type="text"
                     className="newMovieInput bg-opacity-25 bg-white rounded mb-2 border-0 border-bottom border-warning"
@@ -86,6 +87,7 @@ export default function Register() {
                   </Form.Label>
                   <Form.Control
                     value={userEmail}
+                    autoComplete="off"
                     onChange={(event) => setUserEmail(event.target.value)}
                     type="text"
                     className="newMovieInput bg-opacity-25 bg-white rounded mb-2 border-0 border-bottom border-warning"
@@ -101,6 +103,7 @@ export default function Register() {
                   </Form.Label>
                   <Form.Control
                     value={userPassword}
+                    autoComplete="off"
                     onChange={(event) => setUserPassword(event.target.value)}
                     type="password"
                     min="8"
@@ -121,7 +124,7 @@ export default function Register() {
                 >
                   Register
                 </Button>
-                <Link to="/register" className="text-white mt-3">
+                <Link to="/login" className="text-white mt-3">
                   Login to Account
                 </Link>
               </Col>
